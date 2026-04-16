@@ -34,27 +34,27 @@ class Middleware
         $request = $this->runAppMiddlewares($request);
         return $this->runMiddlewares($httpMethod, $uri, $request);
     }
-    
-    private function runMiddlewares(string $httpMethod, string $uri, Request $request): Request
+
+    public function runMiddlewares(string $httpMethod, string $uri, Request $request): Request
     {
         $routeMiddleware = app()->settings->app['routeMiddleware'] ?? [];
-        
+
         foreach ($this->getMiddlewaresForRoute($httpMethod, $uri) as $middleware) {
             $args = explode(':', $middleware);
             $request = (new $routeMiddleware[$args[0]])->handle($request, $args[1] ?? null) ?? $request;
         }
-        
+
         return $request;
     }
 
-    private function runAppMiddlewares(Request $request): Request
+    public function runAppMiddlewares(Request $request): Request
     {
         $routeMiddleware = app()->settings->app['routeAppMiddleware'] ?? [];
-        
+
         foreach ($routeMiddleware as $class) {
             $request = (new $class)->handle($request);
         }
-        
+
         return $request;
     }
 

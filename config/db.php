@@ -3,7 +3,7 @@
 return [
     'driver' => 'mysql',
     'host' => 'localhost',
-    'database' => 'mvc',
+    'database' => 'library',
     'username' => 'root',
     'password' => '',
     'charset' => 'utf8',

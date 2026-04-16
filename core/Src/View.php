@@ -6,7 +6,6 @@ use Exception;
 
 class View
 {
-
     private string $view = '';
     private array $data = [];
     private string $root = '';
@@ -57,5 +56,4 @@ class View
     {
         return $this->render($this->view, $this->data);
     }
-
 }

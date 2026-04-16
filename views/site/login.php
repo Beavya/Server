@@ -15,15 +15,16 @@
                 <div class="message message-error"><?= htmlspecialchars($message) ?></div>
             <?php endif; ?>
 
-            <?php if (app()->auth->user()): ?>
+            <?php if (app()->auth::check()): ?>
                 <div class="user-info">
-                    <?= htmlspecialchars(app()->auth->user()->name) ?>
+                    Вы уже вошли как: <?= htmlspecialchars(app()->auth::user()->first_name . ' ' . app()->auth::user()->last_name) ?>
                 </div>
             <?php endif; ?>
 
             <?php if (!app()->auth::check()): ?>
                 <form method="post" class="form-group">
                     <div class="form">
+                        <input type="hidden" name="csrf_token" value="<?= app()->auth::generateCSRF() ?>">
                         <input type="text" name="login" placeholder="логин" required autocomplete="username">
                         <input type="password" name="password" placeholder="пароль" required autocomplete="current-password">
                     </div>

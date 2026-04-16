@@ -12,7 +12,7 @@ class Request
 
     public function __construct()
     {
-        $this->body = $_POST + $_GET;
+        $this->body = $_REQUEST;
         $this->method = $_SERVER['REQUEST_METHOD'];
         $this->headers = getallheaders() ?? [];
     }

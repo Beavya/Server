@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+:root {
+    --color-bg-page: #f8f9ff;
+    --color-bg-card: #EAEFFF;
+    --color-primary: #0026A5;
+    --color-primary-dark: #002575;
+    --color-primary-rgba: rgba(0, 38, 165, 0.5);
+    --color-text-light: white;
+    
+    --color-error-text: #c33;
+
+    --font-weight-bold: 700;
+    --font-weight-semibold: 600;
+}
+
+body{
+    font-family: 'Rubik';
+}

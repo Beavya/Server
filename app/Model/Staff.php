@@ -6,33 +6,39 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Src\Auth\IdentityInterface;
 
-class User extends Model implements IdentityInterface
+class Staff extends Model implements IdentityInterface
 {
     use HasFactory;
     
     public $timestamps = false;
+    protected $table = 'staff';
+    protected $primaryKey = 'id_staff';
+    
     protected $fillable = [
-        'name',
         'login',
-        'password'
+        'password',
+        'first_name',
+        'last_name',
+        'middle_name',
+        'address',
+        'phone_number'
     ];
     
     protected static function booted()
     {
-        static::created(function ($user) {
-            $user->password = md5($user->password);
-            $user->save();
+        static::creating(function ($staff) {
+            $staff->password = md5($staff->password);
         });
     }
     
     public function findIdentity(int $id)
     {
-        return self::where('id', $id)->first();
+        return self::where('id_staff', $id)->first();
     }
     
     public function getId(): int
     {
-        return $this->id;
+        return $this->id_staff;
     }
     
     public function attemptIdentity(array $credentials)

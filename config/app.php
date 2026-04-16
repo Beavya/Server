@@ -9,7 +9,7 @@ return [
         'librarian' => \Middlewares\LibrarianMiddleware::class,
     ],
     'routeAppMiddleware' => [
-        // 'csrf' => \Middlewares\CSRFMiddleware::class,
+        'csrf' => \Middlewares\CSRFMiddleware::class,
         'trim' => \Middlewares\TrimMiddleware::class,
         'specialChars' => \Middlewares\SpecialCharsMiddleware::class,
     ],

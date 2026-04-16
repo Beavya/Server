@@ -6,7 +6,7 @@ use Src\Validator\AbstractValidator;
 
 class PhoneValidator extends AbstractValidator
 {
-    protected string $message = 'Поле :field должно быть в формате +7XXXXXXXXXX или 8XXXXXXXXXX';
+    protected string $message = 'Неверный формат телефона';
 
     public function rule(): bool
     {

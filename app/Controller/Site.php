@@ -82,6 +82,38 @@ class Site
             return new View('site.add_reader');
         }
 
+    
+    public function login(Request $request): string
+    {
+        if ($request->method === 'GET') {
+            return new View('site.login');
+        }
+        
+        $validator = new Validator($request->all(), [
+            'login' => ['required'],
+            'password' => ['required'],
+        ], [
+            'required' => 'Поле :field пусто',
+        ]);
+        
+        if ($validator->fails()) {
+            return new View('site.login', [
+                'message' => json_encode($validator->errors(), JSON_UNESCAPED_UNICODE)
+            ]);
+        }
+        
+        if (Auth::attempt($request->all())) {
+            if (app()->auth::user()->id_role == 1) {
+                header('Location: /server/add_librarian');
+                exit;
+            }
+            header('Location: /server/hello');
+            exit;
+        }
+        
+        return new View('site.login', ['message' => 'Неправильные логин или пароль']);
+    }
+
     public function logout(): void
     {
         app()->auth::logout();
