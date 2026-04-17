@@ -22,19 +22,26 @@
             </div>
         <?php endif; ?>
 
-        <form method="post" class="form-group">
+        <form method="post" enctype="multipart/form-data" class="form-group">
             <input type="hidden" name="csrf_token" value="<?= app()->auth::generateCSRF() ?>">
             <div class="form">
+                <div class="form-row">
+                    <label class="checkbox-label">обложка:</label>
+                    <input type="file" name="cover">
+                </div>
+
                 <input type="text" name="title" placeholder="название">
+
                 <select name="id_author">
                     <option value="">выберите автора</option>
                     <?php foreach ($authors as $author): ?>
                         <option value="<?= $author->id_author ?>"><?= htmlspecialchars($author->last_name . ' ' . $author->first_name . ' ' . $author->middle_name) ?></option>
                     <?php endforeach; ?>
                 </select>
+
                 <div class="form-row">
                     <input type="number" name="publication_year" placeholder="год издания">
-                    <input type="text" name="price" placeholder="цена">
+                    <input type="number" name="price" placeholder="цена">
                 </div>
                 
                 <div class="form-row">

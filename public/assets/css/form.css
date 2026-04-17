@@ -2,7 +2,7 @@
 
 .card {
     width: 700px;
-    margin-top: 120px;
+    margin: 50px 0 50px 0;
     padding: 50px;
     display: flex;
     flex-direction: column;
@@ -34,19 +34,30 @@
     gap: 60px;
 }
 
-.form input,
+.form-row {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.form input:not([type="file"]),
 .form select,
 .form textarea {
     width: 600px;
     padding: 16px 40px;
     outline: none;
+    resize: none;
     border: 3px solid var(--color-primary);
     border-radius: 20px;
     font-size: 24px;
     font-weight: var(--font-weight-bold);
     color: var(--color-primary);
     transition: all 0.3s ease;
-    resize: none;
+    background-color: white;
+}
+
+.form-row input {
+    width: 290px !important;
 }
 
 .form input:focus,
@@ -62,13 +73,26 @@
     color: var(--color-primary);
 }
 
+input[type="checkbox"] {
+    width: 25px !important;
+    height: 25px !important;
+    border: 2px solid var(--color-primary);
+}
+
+.checkbox-label {
+    padding-left: 40px;
+    font-size: 24px;
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-primary);
+}
+
 .btn-submit {
     width: 340px;
     padding: 15px;
-    background-color: var(--color-primary);
     border: none;
     border-radius: 20px;
     cursor: pointer;
+    background-color: var(--color-primary);
     font-size: 32px;
     font-weight: var(--font-weight-semibold);
     color: var(--color-text-light);
@@ -80,50 +104,22 @@
 }
 
 .message-error {
-    max-height: 100px;
-    padding: 10px;
+    max-height: 100px;;
     overflow-y: auto;
-    
     font-size: 24px;
     color: var(--color-error);
 }
 
 .message-success {
     max-height: 100px;
-    padding: 10px;
     overflow-y: auto;
-    
     font-size: 24px;
     color: var(--color-success);
 }
 
 .user-info {
     text-align: center;
-    
     font-size: 30px;
     font-weight: var(--font-weight-semibold);
     color: var(--color-primary);
-}
-
-.form-row{
-    display: flex;
-    gap: 20px;
-    align-items: center;
-}
-
-.form-row input{
-    width: 290px;
-}
-
-.checkbox-label {
-    padding-left: 40px;
-    font-size: 24px;
-    font-weight: var(--font-weight-semibold);
-    color: var(--color-primary);
-}
-
-input[type="checkbox"] {
-    border: 2px solid var(--color-primary);
-    width: 25px;
-    height: 25px;
 }

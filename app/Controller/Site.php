@@ -84,44 +84,66 @@ class Site
         return new View('site.add_reader');
     }
 
-    public function addBook(Request $request): string
-    {
-        $authors = Author::all();
+public function addBook(Request $request): string
+{
+    $authors = Author::all();
 
-        if ($request->method === 'POST') {
-            $validator = new Validator($request->all(), [
-                'title' => ['required', 'max:255'],
-                'id_author' => ['required'],
-                'publication_year' => ['required', 'max:4'],
-                'price' => ['required'],
-                'summary' => ['max:255'],
-                'is_new' => [],
-            ], [
-                'required' => 'Поле :field пусто',
-                'max' => 'Поле :field должно содержать максимум :max символов',
+    // Проверка на отправку файла
+    if (!isset($_FILES['cover']) || $_FILES['cover']['error'] === UPLOAD_ERR_NO_FILE) {
+        return new View('site.add_book', [
+            'error' => 'Выберите файл обложки',
+            'authors' => $authors
+        ]);
+    }
+
+    if ($request->method === 'POST') {
+        // Валидация текстовых полей (без cover)
+        $validator = new Validator($request->all(), [
+            'title' => ['required', 'max:255'],
+            'id_author' => ['required'],
+            'publication_year' => ['required', 'max:4'],
+            'price' => ['required', 'price', 'max:10'],
+            'summary' => ['max:255'],
+            'is_new' => [],
+        ], [
+            'required' => 'Поле :field пусто',
+            'max' => 'Поле :field должно содержать максимум :max символов',
+            'price' => 'Поле :field должно быть положительным целым числом',
+        ]);
+        
+        $fileValidator = new Validator(['cover' => $_FILES['cover']], [
+            'cover' => ['required', 'image'],
+        ], [
+            'required' => 'Загрузите обложку книги',
+            'image' => 'Обложка должна быть изображением (jpg, png, gif)',
+        ]);
+        
+        if ($validator->fails() || $fileValidator->fails()) {
+            $errors = array_merge($validator->errors(), $fileValidator->errors());
+            return new View('site.add_book', [
+                'error' => json_encode($errors, JSON_UNESCAPED_UNICODE),
+                'authors' => $authors
             ]);
-            
-            if ($validator->fails()) {
-                return new View('site.add_book', [
-                    'error' => json_encode($validator->errors(), JSON_UNESCAPED_UNICODE),
-                    'authors' => $authors
-                ]);
-            }
-
-            $data = $request->all();
-            $data['id_status_book'] = 1;
-            $data['is_new'] = $data['is_new'] ?? 0;
-            
-            if (Book::create($data)) {
-                return new View('site.add_book', [
-                    'success' => 'Книга успешно добавлена',
-                    'authors' => $authors
-                ]);
-            }
         }
 
-        return new View('site.add_book', ['authors' => $authors]);
+        $data = $request->all();
+        $data['id_status_book'] = 1;
+        $data['is_new'] = $data['is_new'] ?? 0;
+        
+        $filename = time() . '_' . $_FILES['cover']['name'];
+        move_uploaded_file($_FILES['cover']['tmp_name'], __DIR__ . '/../../public/uploads/' . $filename);
+        $data['cover'] = '/server/uploads/' . $filename;
+        
+        if (Book::create($data)) {
+            return new View('site.add_book', [
+                'success' => 'Книга успешно добавлена',
+                'authors' => $authors
+            ]);
+        }
     }
+
+    return new View('site.add_book', ['authors' => $authors]);
+}
     
     public function login(Request $request): string
     {
