@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 @import url('/server/assets/css/form.css');
 @import url('/server/assets/css/readers.css');
+@import url('/server/assets/css/reader_profile.css');
 
 :root {
     --color-bg-page: #f8f9ff;
@@ -12,6 +13,7 @@
     
     --color-error: #cc3333;
     --color-success: #21C834;
+    --color-overdue: #B7B7B7;
 
     --font-weight-bold: 700;
     --font-weight-semibold: 600;
@@ -66,6 +68,11 @@ nav {
     gap: 60px;
 }
 
+.logo {
+    font-size: 40px;
+    color: var(--color-text-light);
+}
+
 .link a {
     font-size: 32px;
     color: var(--color-text-light);
@@ -74,9 +81,4 @@ nav {
 
 .link a:hover {
     text-decoration: underline;
-}
-
-.logo{
-    font-size: 40px;
-    color: var(--color-text-light);
 }

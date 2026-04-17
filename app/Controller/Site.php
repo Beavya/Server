@@ -239,5 +239,23 @@ class Site
         
         return new View('site.readers', ['readers' => $readers, 'search' => $search]);
     }
+
+    public function readerProfile($cardNumber, Request $request): string
+    {
+        $reader = Reader::find($cardNumber);
+        
+        if (!$reader) {
+            app()->route->redirect('/readers');
+        }
+        
+        $loans = Loan::where('card_number', $cardNumber)
+            ->with('book')
+            ->get();
+        
+        return new View('site.reader_profile', [
+            'reader' => $reader,
+            'loans' => $loans
+        ]);
+    }
 }
 

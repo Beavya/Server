@@ -1,14 +1,14 @@
-.container-card{
+.container-card {
     display: flex;
     flex-direction: column;
-    margin: 100px 0 100px 0;
     gap: 60px;
+    margin: 100px 0;
 }
 
 .card.readers {
     width: 1600px;
-    margin: 0;
     padding: 50px 100px;
+    margin: 0;
     align-items: flex-start;
 }
 
@@ -17,38 +17,90 @@
 }
 
 .form.readers {
-    align-items: center;
+    display: flex;
     flex-direction: row;
+    align-items: center;
     gap: 25px;
 }
 
-.readers-list{
+.readers-list {
     display: flex;
     flex-direction: column;
     gap: 25px;
 }
 
-.reader-item{
+.reader-item {
     width: 1400px;
     padding: 16px 40px;
-    border-radius: 20px;
-    border: 3px solid transparent;
-    transition: all 0.3s ease;
-    background-color: white;
-    transition: all 0.3s ease;
-    cursor: pointer;
     display: flex;
     justify-content: space-between;
+    cursor: pointer;
+    background-color: var(--color-text-light);
+    border: 3px solid transparent;
+    border-radius: 10px;
+    transition: all 0.3s ease;
 }
 
-.reader-item:hover{
+.reader-item:hover {
     border: 3px solid var(--color-primary);
 }
 
-.reader-item a{
+.reader-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.reader-info {
+    padding-left: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    font-size: 24px;
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-primary);
+}
+
+.reader-item a {
     font-size: 24px;
     font-weight: var(--font-weight-bold);
     color: var(--color-primary);
+}
+
+.reader-item a.btn-return {
+    display: inline-block;
+    padding: 8px 16px;
+    text-decoration: none;
+    background-color: var(--color-primary);
+    border-radius: 10px;
+    font-size: 24px;
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-text-light);
+}
+
+.reader-item a.btn-return:hover {
+    background-color: var(--color-primary-dark);
+    color: var(--color-text-light);
+    border: none;
+}
+
+.reader-status {
+    font-size: 24px;
+}
+
+.status-inactive {
+    font-size: 24px;
+    color: var(--color-error);
+}
+
+.status-active {
+    font-size: 24px;
+    color: var(--color-success);
+}
+
+.status-overdue {
+    font-size: 24px;
+    color: var(--color-success);
 }
 
 .btn-reset {
@@ -67,28 +119,12 @@
     padding: 15px;
     border-radius: 20px;
     background-color: var(--color-primary);
-    transition: all 0.3s ease;
     font-size: 30px;
     font-weight: var(--font-weight-semibold);
     color: var(--color-text-light);
+    transition: all 0.3s ease;
 }
 
 .btn-link:hover {
     background-color: var(--color-primary-dark);
 }
-
-.reader-status {
-    font-size: 24px;
-
-}
-
-.status-inactive {
-    font-size: 24px;
-    color: var(--color-error);
-}
-
-.status-active {
-    font-size: 24px;
-    color: var(--color-success);
-}
-

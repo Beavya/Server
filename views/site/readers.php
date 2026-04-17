@@ -11,9 +11,7 @@
             <?php if (count($readers) > 0): ?>
                 <?php foreach ($readers as $reader): ?>
                     <div class="reader-item">
-                        <a>
-                            <?= htmlspecialchars($reader->last_name . ' ' . $reader->first_name . ' ' . $reader->middle_name) ?>
-                        </a>
+                        <a href="<?= app()->route->getUrl('/readers/' . $reader->card_number) ?>"> <?= htmlspecialchars($reader->last_name . ' ' . $reader->first_name . ' ' . $reader->middle_name) ?></a>
                         <span class="<?= $reader->isActive() ? 'status-active' : 'status-inactive' ?>">
                             <?= $reader->isActive() ? 'Активен' : 'Не активен' ?>
                         </span>

@@ -18,4 +18,9 @@ class Loan extends Model
         'actual_return_date',
         'id_status_loan'
     ];
+
+    public function book()
+    {
+        return $this->belongsTo(Book::class, 'id_book', 'id_book');
+    }
 }
