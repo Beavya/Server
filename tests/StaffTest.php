@@ -2,10 +2,7 @@
 
 use PHPUnit\Framework\TestCase;
 use Model\Staff;
-<<<<<<< HEAD
 use Src\Auth\Auth;
-=======
->>>>>>> 4b9b15ba0df5899c2fb564d95b029ec98ede5cd0
 
 class StaffTest extends TestCase
 {
@@ -30,11 +27,7 @@ class StaffTest extends TestCase
      * @dataProvider additionProvider
      * @runInSeparateProcess
      */
-<<<<<<< HEAD
     public function testAddLibrarian(string $login, string $password, string $firstName, string $lastName, bool $expected)
-=======
-    public function testAddLibrarian(string $login, string $password, string $firstName, string $lastName, bool $expected, string $expectedMessage)
->>>>>>> 4b9b15ba0df5899c2fb564d95b029ec98ede5cd0
     {
         $data = [
             'login'       => $login,
@@ -93,7 +86,6 @@ class StaffTest extends TestCase
         $uniqueLogin = 'test_user_' . time();
         
         return [
-<<<<<<< HEAD
             [$uniqueLogin, '123456', 'Иван', 'Иванов', true],
             ['',           '123456', 'Иван', 'Иванов', false],
             [$uniqueLogin, '',       'Иван', 'Иванов', false],
@@ -110,13 +102,6 @@ class StaffTest extends TestCase
             ['invalid', '123456', false],
             ['',        '123456', false],
             ['valid',   '',       false],
-=======
-            [$uniqueLogin, '123456', 'Иван', 'Иванов', true, ''],
-            ['',           '123456', 'Иван', 'Иванов', false, 'Поле login пусто'],
-            [$uniqueLogin, '',       'Иван', 'Иванов', false, 'Поле password пусто'],
-            [$uniqueLogin, '123456', '',     'Иванов', false, 'Поле first_name пусто'],
-            [$uniqueLogin, '123456', 'Иван', '',       false, 'Поле last_name пусто'],
->>>>>>> 4b9b15ba0df5899c2fb564d95b029ec98ede5cd0
         ];
     }
 }
