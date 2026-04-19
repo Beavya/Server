@@ -9,7 +9,7 @@ class AdminMiddleware
     public function handle(Request $request)
     {
         if (app()->auth::user()->id_role != 1) {
-            app()->route->redirect('/hello');
+            app()->route->redirect('/login');
         }
 
         return $request;
