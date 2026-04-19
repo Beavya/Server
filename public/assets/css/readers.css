@@ -1,0 +1,129 @@
+.container-card {
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+    margin: 100px 0;
+}
+
+.card.readers {
+    width: 1600px;
+    padding: 50px 100px;
+    margin: 0;
+    align-items: flex-start;
+}
+
+.card.readers .title {
+    align-self: center;
+}
+
+.form.readers {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 25px;
+}
+
+.readers-list {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.reader-item {
+    width: 1400px;
+    padding: 16px 40px;
+    display: flex;
+    justify-content: space-between;
+    background-color: var(--color-text-light);
+    border: 3px solid transparent;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+.reader-item:hover {
+    border: 3px solid var(--color-primary);
+}
+
+.reader-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.reader-info {
+    padding-left: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    font-size: 24px;
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-primary);
+}
+
+.reader-item a {
+    font-size: 24px;
+    font-weight: var(--font-weight-bold);
+    color: var(--color-primary);
+}
+
+.reader-item a.btn-return {
+    display: inline-block;
+    padding: 8px 16px;
+    text-decoration: none;
+    background-color: var(--color-primary);
+    border-radius: 10px;
+    font-size: 24px;
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-text-light);
+}
+
+.reader-item a.btn-return:hover {
+    background-color: var(--color-primary-dark);
+    color: var(--color-text-light);
+    border: none;
+}
+
+.reader-status {
+    font-size: 24px;
+}
+
+.status-inactive {
+    font-size: 24px;
+    color: var(--color-overdue);
+}
+
+.status-active {
+    font-size: 24px;
+    color: var(--color-success);
+}
+
+.status-overdue {
+    font-size: 24px;
+    color: var(--color-error);
+}
+
+.btn-reset {
+    padding: 15px;
+    border: none;
+    border-radius: 20px;
+    background-color: var(--color-primary);
+    font-size: 24px;
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-text-light);
+    transition: all 0.3s ease;
+}
+
+.btn-link {
+    width: fit-content;
+    padding: 15px;
+    border-radius: 20px;
+    background-color: var(--color-primary);
+    font-size: 28px;
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-text-light);
+    transition: all 0.3s ease;
+}
+
+.btn-link:hover {
+    background-color: var(--color-primary-dark);
+}

@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import url('/server/assets/css/form.css');
+@import url('/server/assets/css/readers.css');
+@import url('/server/assets/css/reader_profile.css');
+@import url('/server/assets/css/book.css');
+
+:root {
+    --color-bg-page: #f8f9ff;
+    --color-bg-card: #EAEFFF;
+    --color-primary: #0026A5;
+    --color-primary-dark: #002575;
+    --color-primary-rgba: rgba(0, 38, 165, 0.5);
+    --color-text-light: white;
+    
+    --color-error: #cc3333;
+    --color-success: #21C834;
+    --color-overdue: #B7B7B7;
+
+    --font-weight-bold: 700;
+    --font-weight-semibold: 600;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+}
+
+body {
+    box-sizing: border-box;
+    font-family: 'Rubik', sans-serif;
+}
+
+.wrapper {
+    width: 100%;
+    min-height: 100vh;
+    background-color: var(--color-bg-page);
+    background-image: url('/server/assets/img/bg.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+header {
+    padding: 30px 140px;
+    background-color: var(--color-primary);
+    font-family: 'Ubuntu Mono', sans-serif;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.link {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+}
+
+.logo {
+    font-size: 40px;
+    color: var(--color-text-light);
+}
+
+.link a {
+    font-size: 32px;
+    color: var(--color-text-light);
+    transition: all 0.3s ease;
+}
+
+.link a:hover {
+    text-decoration: underline;
+}
