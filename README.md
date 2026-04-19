@@ -22,7 +22,5 @@ C:\xampp\php\php.exe composer.phar install
 
 ```cmd
 cd C:\xampp\htdocs
-git clone https://github.com/beavya/server.git
-cd server
-C:\xampp\php\php.exe composer.phar install
+C:\xampp\php\php.exe composer.phar create-project beavya/server server --stability=dev
 ```
