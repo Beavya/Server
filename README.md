@@ -1,12 +1,3 @@
-## Установка Composer (Windows)
-
-### 1. Скачай `composer.phar`
-
-Скачай файл по ссылке:  
-https://github.com/composer/composer/releases/download/2.8.4/composer.phar  
-
-Положи его в папку `C:\xampp\htdocs`
-
 ## 2. Установка проекта
 
 ### Через Git
@@ -24,3 +15,13 @@ C:\xampp\php\php.exe composer.phar install
 cd C:\xampp\htdocs
 C:\xampp\php\php.exe composer.phar create-project beavya/server server --stability=dev
 ```
+
+### 1. Установка Composer (Windows)
+
+### 1. Скачай `composer.phar`
+
+Скачай файл по ссылке:  
+https://github.com/composer/composer/releases/download/2.8.4/composer.phar  
+
+Положи его в папку `C:\xampp\htdocs`
+
