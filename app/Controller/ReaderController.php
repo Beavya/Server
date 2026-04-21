@@ -18,11 +18,9 @@ class ReaderController
                 'first_name'   => ['required', 'max:255'],
                 'middle_name'  => ['max:255'],
                 'address'      => ['required', 'max:255'],
-                'phone_number' => ['required', 'phone'],
             ], [
                 'required' => 'Поле :field пусто',
                 'max'      => 'Поле :field должно содержать максимум :max символов',
-                'phone'    => 'Неверный формат телефона',
             ]);
 
             if ($validator->fails()) {

@@ -16,7 +16,7 @@ class AuthController
         }
 
         $validator = new Validator($request->all(), [
-            'login'    => ['required'],
+            'login' => ['required'],
             'password' => ['required'],
         ], [
             'required' => 'Поле :field пусто',
@@ -30,12 +30,12 @@ class AuthController
 
         if (Auth::attempt($request->all())) {
             if (app()->auth::user()->id_role == 1) {
-                header('Location: /add_librarian');
-                exit;
+                app()->route->redirect('/add_librarian');
+                return false;
             }
 
-            header('Location: /books');
-            exit;
+            app()->route->redirect('/books');
+            return false;
         }
 
         return new View('site.login', ['message' => 'Неправильные логин или пароль']);

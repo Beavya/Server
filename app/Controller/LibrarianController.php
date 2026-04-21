@@ -19,12 +19,11 @@ class LibrarianController
                 'last_name'    => ['required', 'max:255'],
                 'middle_name'  => ['max:100'],
                 'address'      => ['required', 'max:255'],
-                'phone_number' => ['required', 'phone'],
+                'phone_number' => ['required'],
             ], [
                 'required' => 'Поле :field пусто',
                 'unique'   => 'Поле :field должно быть уникально',
                 'max'      => 'Поле :field должно содержать максимум :max символов',
-                'phone'    => 'Неверный формат телефона',
             ]);
 
             if ($validator->fails()) {

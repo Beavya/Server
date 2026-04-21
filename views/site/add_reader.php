@@ -21,7 +21,7 @@
             <input type="text" name="first_name" placeholder="имя">
             <input type="text" name="middle_name" placeholder="отчество">
             <input type="text" name="address" placeholder="адрес">
-            <input type="tel" name="phone_number" placeholder="номер телефона">
+            <input type="tel" id="phone_number" name="phone_number" placeholder="номер телефона">
         </div>
 
         <button type="submit" class="btn-submit">Добавить</button>
