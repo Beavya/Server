@@ -37,7 +37,8 @@ body {
     width: 100%;
     min-height: 100vh;
     background-color: var(--color-bg-page);
-    background-image: url('/public/assets/img/bg.png');
+    /* background-image: url('/public/assets/img/bg.png'); */
+    background-image: url('/server/public/assets/img/bg.png');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;

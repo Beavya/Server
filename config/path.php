@@ -1,7 +1,8 @@
 <?php
 
 return [
-    'root'    => '',
+    // 'root'    => '',
+    'root'    => '/server',
     'routes'  => 'routes',
     'views'   => 'views'
 ];

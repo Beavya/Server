@@ -5,7 +5,8 @@ namespace Controller;
 use Src\View;
 use Src\Request;
 use Src\Auth\Auth;
-use Src\Validator\Validator;
+// use Src\Validator\Validator;
+use Beavya\Validation\Validator;
 
 class AuthController
 {

@@ -3,7 +3,8 @@
 namespace Validators;
 
 use Illuminate\Database\Capsule\Manager as Capsule;
-use Src\Validator\AbstractValidator;
+use Beavya\Validation\AbstractValidator;
+// use Src\Validator\AbstractValidator;
 
 class UniqueValidator extends AbstractValidator
 {
@@ -16,3 +17,5 @@ class UniqueValidator extends AbstractValidator
             ->count();
     }
 }
+
+
