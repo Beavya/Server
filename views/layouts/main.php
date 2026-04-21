@@ -11,7 +11,7 @@
     <div class="wrapper">
         <header>
             <nav>
-                <p class="logo">library</p>
+                <p class="logo">Библиотека</p>
 
                 <div class="link">
                     <?php if (!app()->auth::check()): ?>
