@@ -5,6 +5,7 @@ namespace Controller;
 use Src\View;
 use Src\Request;
 use Src\Auth\Auth;
+use Model\Token;
 // use Src\Validator\Validator;
 use Beavya\Validation\Validator;
 
@@ -46,5 +47,39 @@ class AuthController
     {
         app()->auth::logout();
         app()->route->redirect('/');
+    }
+
+
+    public function generateToken(Request $request): void
+    {
+        if ($request->method !== 'POST') {
+            http_response_code(405);
+            echo json_encode(['error' => 'Method not allowed']);
+            return;
+        }
+        
+        $login = $request->login;
+        $password = $request->password;
+        
+        if (!Auth::attempt(['login' => $login, 'password' => $password])) {
+            http_response_code(401);
+            echo json_encode(['error' => 'Invalid credentials']);
+            return;
+        }
+        
+        $user = Auth::user();
+        
+        Token::where('id_staff', $user->id_staff)->delete();
+        
+        $token = bin2hex(random_bytes(32));
+        
+        Token::create([
+            'id_staff' => $user->id_staff,
+            'token' => $token
+        ]);
+        
+        echo json_encode([
+            'token' => $token
+        ]);
     }
 }

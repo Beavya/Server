@@ -28,23 +28,10 @@ function Mask(input) {
     input.value = formatted;
 }
 
-function isValidPhone(value) {
-    return value.length === 15;
-}
-
 document.addEventListener('DOMContentLoaded', function() {
     document.querySelectorAll('input[type="tel"]').forEach(input => {
         input.addEventListener('input', function() { Mask(this); });
-
-        input.addEventListener('blur', function() {
-            if (this.value === '+7 ') {
-                this.value = '';
-            } else if (this.value !== '' && !isValidPhone(this.value)) {
-                alert('Введите полный номер телефона в формате +7 999 999 99 99');
-                this.value = '';
-            }
-        });
-
+        
         input.addEventListener('focus', function() {
             if (this.value === '') {
                 this.value = '+7 ';
@@ -52,7 +39,3 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
-
-
-
-
