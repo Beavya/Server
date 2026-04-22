@@ -25,7 +25,7 @@ class LibrarianController
                 'required' => 'Поле :field пусто',
                 'unique'   => 'Поле :field должно быть уникально',
                 'max'      => 'Поле :field должно содержать максимум :max символов',
-                'min'      => 'Поле :field должно содержать минимум :min символов'
+                'min'      => 'Поле :field должно содержать минимум 12 символов'
             ]);
 
             if ($validator->fails()) {

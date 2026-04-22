@@ -23,7 +23,7 @@ class ReaderController
             ], [
                 'required' => 'Поле :field пусто',
                 'max'      => 'Поле :field должно содержать максимум :max символов',
-                'min'      => 'Поле :field должно содержать минимум :min символов',
+                'min'      => 'Поле :field должно содержать минимум 12 символов',
             ]);
 
             if ($validator->fails()) {
