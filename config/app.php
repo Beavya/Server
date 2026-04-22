@@ -1,8 +1,16 @@
 <?php
 
 return [
-    'auth'     => \Src\Auth\Auth::class,
+    'auth' => \Src\Auth\Auth::class,
+
     'identity' => \Model\Staff::class,
+
+        'providers' => [
+        'kernel' => \Providers\KernelProvider::class,
+        'route'  => \Providers\RouteProvider::class,
+        'db'     => \Providers\DBProvider::class,
+        'auth'   => \Providers\AuthProvider::class,
+    ],
 
     'routeMiddleware' => [
         'auth'      => \Middlewares\AuthMiddleware::class,
