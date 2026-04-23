@@ -9,10 +9,10 @@ class BearerAuthMiddleware
 {
     public function handle(Request $request): Request
     {
-        $uri = $_SERVER['REQUEST_URI'] ?? '';
-        if (strpos($uri, '/api') === false) {
-            return $request;
-        }
+        // $uri = $_SERVER['REQUEST_URI'] ?? '';
+        // if (strpos($uri, '/api') === false) {
+        //     return $request;
+        // }
 
         $authHeader = $request->headers['Authorization'] ?? '';
 

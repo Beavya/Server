@@ -16,6 +16,7 @@ return [
         'auth'      => \Middlewares\AuthMiddleware::class,
         'admin'     => \Middlewares\AdminMiddleware::class,
         'librarian' => \Middlewares\LibrarianMiddleware::class,
+        'bearer'    => \Middlewares\BearerAuthMiddleware::class
     ],
 
     'routeAppMiddleware' => [
@@ -23,7 +24,6 @@ return [
         'trim'         => \Middlewares\TrimMiddleware::class,
         'specialChars' => \Middlewares\SpecialCharsMiddleware::class,
         'json'         => \Middlewares\JSONMiddleware::class,
-        'bearer'    => \Middlewares\BearerAuthMiddleware::class,
     ],
 
     'validators' => [

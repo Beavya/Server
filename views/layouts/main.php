@@ -6,6 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="/server/assets/css/main.css">
     <script src="/server/assets/js/mask.js"></script>
+    <!-- <link rel="stylesheet" href="/assets/css/main.css">
+    <script src="/assets/js/mask.js"></script> -->
+
     <title>Library</title>
 </head>
 <body>
